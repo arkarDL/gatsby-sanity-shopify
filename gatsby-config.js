@@ -27,6 +27,20 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-gatsby-cloud",
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: `post`,
+        // a token with read permissions is required
+        // if you have a private dataset
+        token: process.env.SANITY_TOKEN,
+
+        // If the Sanity GraphQL API was deployed using `--tag <name>`,
+        // use `graphqlTag` to specify the tag name. Defaults to `default`.
+        graphqlTag: "default",
+      },
+    },
     // Add your Google Analytics ID to the .env file to enable
     // Otherwise, this plugin can be removed
     process.env.GOOGLE_ANALYTICS_ID && {
