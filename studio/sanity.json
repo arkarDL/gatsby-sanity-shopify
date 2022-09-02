@@ -4,7 +4,7 @@
     "name": "coral-dunlin"
   },
   "api": {
-    "projectId": "2ntnh9pm",
+    "projectId": "mifgi6xw",
     "dataset": "production"
   },
   "plugins": [
@@ -15,9 +15,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
