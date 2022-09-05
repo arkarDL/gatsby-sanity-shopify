@@ -13,6 +13,7 @@ module.exports = {
   flags: {
     FAST_DEV: true,
   },
+
   plugins: [
     {
       resolve: "gatsby-source-shopify",
@@ -20,6 +21,7 @@ module.exports = {
         password: process.env.SHOPIFY_SHOP_PASSWORD,
         storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
         shopifyConnections: ["collections"],
+        downloadImages: true,
       },
     },
     "gatsby-plugin-image",
@@ -31,7 +33,7 @@ module.exports = {
       resolve: `gatsby-source-sanity`,
       options: {
         projectId: process.env.SANITY_PROJECT_ID,
-        dataset: `post`,
+        dataset: `production`,
         // a token with read permissions is required
         // if you have a private dataset
         token: process.env.SANITY_TOKEN,
