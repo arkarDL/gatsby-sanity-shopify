@@ -33,6 +33,9 @@ export const query = graphql`
           en
           ja
         }
+        slug {
+          current
+        }
         categories {
           title {
             en

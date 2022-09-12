@@ -60,6 +60,9 @@ export const query = graphql`
           en
           ja
         }
+        slug {
+          current
+        }
         body {
           en {
             _key
