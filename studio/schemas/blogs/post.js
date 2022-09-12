@@ -111,6 +111,11 @@ export default {
       of: [{ type: "reference", to: { type: "category" } }],
     },
     {
+      name: "description",
+      title: "Description",
+      type: "localeText",
+    },
+    {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
