@@ -16,6 +16,13 @@ module.exports = {
 
   plugins: [
     {
+      resolve: "gatsby-plugin-i18n",
+      options: {
+        langKeyDefault: "en",
+        useLangKeyLayout: false,
+      },
+    },
+    {
       resolve: "gatsby-source-shopify",
       options: {
         password: process.env.SHOPIFY_SHOP_PASSWORD,

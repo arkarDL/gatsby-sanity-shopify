@@ -26,7 +26,9 @@
     "gatsby": "^4.19.0",
     "gatsby-plugin-gatsby-cloud": "^4.0.0",
     "gatsby-plugin-google-analytics": "^4.0.0",
+    "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-image": "^2.0.0",
+    "gatsby-plugin-postcss": "^5.22.0",
     "gatsby-plugin-sharp": "^4.0.0",
     "gatsby-plugin-sitemap": "^5.0.0",
     "gatsby-source-filesystem": "^4.0.0",
@@ -42,5 +44,10 @@
     "react-icons": "^4.1.0",
     "shopify-buy": "^2.11.0",
     "urql": "^2.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.9",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
   }
 }
