@@ -44,16 +44,16 @@ exports.createPages = async function ({ actions, graphql }) {
   const {
     allSanityPost: { nodes },
   } = data
-  const blogPostTemplate = path.resolve(`./src/templates/detail/index.jsx`)
-  nodes.forEach((node) => {
-    const path = node?.slug?.current
-    createPage({
-      path,
-      component: blogPostTemplate,
+  // const blogPostTemplate = path.resolve(`./src/templates/detail/index.jsx`)
+  // nodes.forEach((node) => {
+  //   const path = node?.slug?.current
+  //   createPage({
+  //     path,
+  //     component: blogPostTemplate,
 
-      context: {
-        pagePath: path,
-      },
-    })
-  })
+  //     context: {
+  //       pagePath: path,
+  //     },
+  //   })
+  // })
 }
