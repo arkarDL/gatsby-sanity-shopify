@@ -16,6 +16,47 @@ module.exports = {
 
   plugins: [
     {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`,
+        languages: [`en`, `ja`],
+        defaultLanguage: `en`,
+        siteUrl: `http://localhost:8000/`,
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false,
+          },
+          keySeparator: false,
+          nsSeparator: false,
+        },
+        pages: [
+          {
+            matchPath: "/:lang?/blog/:uid",
+            getLanguageFromPath: true,
+          },
+          {
+            matchPath: "/",
+            languages: ["en", "ja"],
+          },
+          {
+            matchPath: "/blogs",
+            languages: ["en", "ja"],
+          },
+          {
+            matchPath: "/products",
+            languages: ["en", "ja"],
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/locales/`,
+        name: `locale`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-i18n",
       options: {
         langKeyDefault: "en",
