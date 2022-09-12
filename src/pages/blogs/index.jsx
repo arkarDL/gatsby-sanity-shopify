@@ -27,7 +27,7 @@ export const query = graphql`
         data
       }
     }
-    allSanityPost(limit: 3) {
+    allSanityPost(limit: 10) {
       nodes {
         title {
           en
@@ -40,6 +40,16 @@ export const query = graphql`
           title {
             en
             ja
+          }
+        }
+        mainImage {
+          asset {
+            gatsbyImageData(
+              fit: FILLMAX
+              placeholder: DOMINANT_COLOR
+              width: 400
+              height: 250
+            )
           }
         }
         description {

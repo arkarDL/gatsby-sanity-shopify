@@ -63,6 +63,16 @@ export const query = graphql`
         slug {
           current
         }
+        mainImage {
+          asset {
+            gatsbyImageData(
+              fit: FILLMAX
+              placeholder: DOMINANT_COLOR
+              width: 400
+              height: 250
+            )
+          }
+        }
         body {
           en {
             _key

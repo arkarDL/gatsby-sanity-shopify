@@ -1,13 +1,20 @@
 import React from "react"
 import { Trans, useI18next } from "gatsby-plugin-react-i18next"
+import { GatsbyImage } from "gatsby-plugin-image"
 const Card = ({ data }) => {
   const { language } = useI18next()
   console.log(data)
   return (
-    <div className="p-4 border rounded-md shadow-sm hover:border-blue-200 ">
-      <h2 className="mb-4 text-xl font-bold ">{data.title[language]}</h2>
+    <div className="p-4 px-6 border rounded-md shadow-sm hover:border-blue-200 ">
+      <h2 className="mb-2 text-2xl font-bold capitalize">
+        {data.title[language]}
+      </h2>
+      <GatsbyImage
+        image={data.mainImage.asset.gatsbyImageData}
+        className="my-6"
+      />
       {data.description && (
-        <p className="line-clamp-3">{data?.description[language]}</p>
+        <p className="line-clamp-3 mb-4">{data?.description[language]}</p>
       )}
       <a
         href={`/${language == "ja" ? "ja/" : ""}${data?.slug?.current}`}
