@@ -6,12 +6,12 @@ export default {
     {
       name: "title",
       title: "Title",
-      type: "string",
+      type: "localeString",
     },
     {
       name: "description",
       title: "Description",
-      type: "text",
+      type: "localeText",
     },
   ],
 }
