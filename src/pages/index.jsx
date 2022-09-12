@@ -5,23 +5,25 @@ import { graphql } from "gatsby"
 import React from "react"
 import Container from "../layout/container"
 import { Trans, useTranslation } from "gatsby-plugin-react-i18next"
-const HomePage = (props) => {
+import { listItem } from "mdast-util-to-hast/lib/handlers/list-item"
+const HomePage = ({ data }) => {
+  const { allSanityPost, allShopifyProduct } = data
   const { t } = useTranslation()
-  console.log(props)
+  console.log(allShopifyProduct, allSanityPost)
   return (
     <Container>
       <div className="mt-8">
-        <h2 className="text-3xl font-bold mb-4">
-          <Trans>{t(`Latest Products`)}</Trans>
-        </h2>
+        <h2 className="mb-4 text-3xl font-bold">{t("Latest Products")}</h2>
         <Grid>
-          <ProductCard></ProductCard>
-          <ProductCard></ProductCard>
-          <ProductCard></ProductCard>
+          {allShopifyProduct?.nodes?.map((itm, index) => (
+            <ProductCard key={index} data={itm} />
+          ))}
         </Grid>
       </div>
       <div className="mt-8">
-        <h2 className="text-3xl font-bold mb-4">Latest Blogs</h2>
+        <h2 className="mb-4 text-3xl font-bold">
+          <Trans>Latest Blogs</Trans>
+        </h2>
         <Grid>
           <BlogCard></BlogCard>
           <BlogCard></BlogCard>
@@ -33,9 +35,10 @@ const HomePage = (props) => {
 }
 
 export default HomePage
+
 export const query = graphql`
   query HomePageQuery($language: String!) {
-    allLocale(filter: { language: { eq: $language } }) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
       nodes {
         ns
         language
@@ -79,7 +82,11 @@ export const query = graphql`
         featuredImage {
           localFile {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED)
+              gatsbyImageData(
+                width: 200
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }
