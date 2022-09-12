@@ -58,7 +58,7 @@ import shopifyProductVariant from "./objects/shopifyProductVariant"
 // Custom contents
 import blockContent from "./blogs/blockContent"
 import category from "./blogs/category"
-import post, { localeString } from "./blogs/post"
+import post, { localeString, localeText, localeTextBlock } from "./blogs/post"
 import author from "./blogs/author"
 
 // Build the schemas and export to the Sanity Studio app
@@ -74,6 +74,8 @@ export default createSchema({
     post,
     author,
     localeString,
+    localeText,
+    localeTextBlock,
     // Annotations
     annotationLinkEmail,
     annotationLinkExternal,
