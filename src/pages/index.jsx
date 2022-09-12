@@ -4,16 +4,14 @@ import ProductCard from "../components/productCard"
 import { graphql } from "gatsby"
 import React from "react"
 import Container from "../layout/container"
-import { Trans, useTranslation } from "gatsby-plugin-react-i18next"
-import { listItem } from "mdast-util-to-hast/lib/handlers/list-item"
+import { Trans, useI18next } from "gatsby-plugin-react-i18next"
 const HomePage = ({ data }) => {
   const { allSanityPost, allShopifyProduct } = data
-  const { t } = useTranslation()
-  console.log(allShopifyProduct, allSanityPost)
+
   return (
     <Container>
       <div className="mt-8">
-        <h2 className="mb-4 text-3xl font-bold">{t("Latest Products")}</h2>
+        <h2 className="mb-4 text-3xl font-bold">{"Latest Products"}</h2>
         <Grid>
           {allShopifyProduct?.nodes?.map((itm, index) => (
             <ProductCard key={index} data={itm} />
@@ -25,9 +23,9 @@ const HomePage = ({ data }) => {
           <Trans>Latest Blogs</Trans>
         </h2>
         <Grid>
-          <BlogCard></BlogCard>
-          <BlogCard></BlogCard>
-          <BlogCard></BlogCard>
+          {allSanityPost.nodes.map((post, index) => (
+            <BlogCard key={index} data={post}></BlogCard>
+          ))}
         </Grid>
       </div>
     </Container>
@@ -58,6 +56,10 @@ export const query = graphql`
             ja
           }
         }
+        description {
+          en
+          ja
+        }
         body {
           en {
             _key
@@ -82,11 +84,7 @@ export const query = graphql`
         featuredImage {
           localFile {
             childImageSharp {
-              gatsbyImageData(
-                width: 200
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
           }
         }

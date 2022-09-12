@@ -38,11 +38,7 @@ export const query = graphql`
         featuredImage {
           localFile {
             childImageSharp {
-              gatsbyImageData(
-                width: 200
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
           }
         }

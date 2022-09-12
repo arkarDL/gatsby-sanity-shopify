@@ -1,13 +1,13 @@
 import React from "react"
-const Card = () => {
+import { Trans, useI18next } from "gatsby-plugin-react-i18next"
+const Card = ({ data }) => {
+  console.log(data)
+  const { language } = useI18next()
   return (
-    <div className="p-4 border hover:border-blue-200 shadow-sm rounded-md   ">
-      <h2 className="font-bold mb-4 text-xl ">Addidas is colalie</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
-        veritatis repellendus voluptatem.
-      </p>
-      <button className="hover:border-l-2  border-blue-500 max-w-max mt-4 px-4 text-md uppercase py-1 shadow-sm rounded-full text-blue-500">
+    <div className="p-4 border rounded-md shadow-sm hover:border-blue-200 ">
+      <h2 className="mb-4 text-xl font-bold ">{data.title[language]}</h2>
+      {data.description && <p>{data?.description[language]}</p>}
+      <button className="px-4 py-1 mt-4 text-blue-500 uppercase border-blue-500 rounded-full shadow-sm hover:border-l-2 max-w-max text-md">
         Check Out
       </button>
     </div>
